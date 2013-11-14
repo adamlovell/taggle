@@ -10,8 +10,8 @@ from mutagen.mp3 import MP3
 
 
 def tag (track):
-    tagged_track = track_tags(track_extention(track))
-    return tagged_track
+    new_track = track_tags(track_extention(track))
+    return new_track
 
 def track_extention (track):
     if os.path.splitext(track)[1] == '.mp3':
