@@ -4,8 +4,8 @@ import sys
 import os
 import shutil
 
-def move_track (track, dest_dir):
-    shutil.copy(track, dest_dir)
-    print(dest_dir)
+def move_track (track, destination_directory):
+
+    shutil.copy(track, destination_directory)
 
     
