@@ -1,11 +1,19 @@
 #!/usr/bin/env python
 
+import os
 from lib import sort
 from lib import move
+from lib import tag
 
-track = {}
-track['source'] = 'test_source_dir/test.mp3'
-track['starting_dir'] = './test_dest_dir/'
+tracks = []
 keys = ['genre', 'artist', 'album'] 
-track['destination_dir'] = sort.sort_track(track, keys)
-move.move_track(track['source'], track['destination_dir'])
+rootdir = './test_source_dir'
+
+for subdir, dirs, files in os.walk(rootdir):
+    for file in files:
+        track = {}
+        track['source'] = subdir + '/' + file
+        track['starting_dir'] = './test_dest_dir/'
+        track['tags'] = tag.tag(track['source'])
+        track['destination_dir'] = sort.sort_track(track, keys)
+        move.move_track(track['source'], track['destination_dir'])
