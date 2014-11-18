@@ -2,7 +2,7 @@
 
 def sort_track(track, keys): 
 
-    track_dest_dir = str(track['starting_dir'])
+    track_dest_dir = str(track['base_dir'])
     for value in keys: 
         track_dest_dir += track['tags'][value][0].strip() + '/'
 
